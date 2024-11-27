@@ -28,7 +28,7 @@ public class MainForSpring {
 		BufferedReader reader = 
 				new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
-			System.out.println("명령어를 입력하세요:");
+			System.out.println("chap05.명령어를 입력하세요:");
 			String command = reader.readLine();
 			if (command.equalsIgnoreCase("exit")) {
 				System.out.println("종료합니다.");
@@ -48,6 +48,9 @@ public class MainForSpring {
 				continue;
 			} else if (command.equals("version")) {
 				processVersionCommand();
+				continue;
+			} else if (command.equals("sample")) {
+				processSampleCommand()  ;
 				continue;
 			}
 			printHelp();
@@ -102,7 +105,10 @@ public class MainForSpring {
 		System.out.println("명령어 사용법:");
 		System.out.println("new 이메일 이름 암호 암호확인");
 		System.out.println("change 이메일 현재비번 변경비번");
-		System.out.println();
+		System.out.println("info 이메일1");
+		System.out.println("list");
+		System.out.println("version");
+		System.out.println("sample -- 테스트용 샘플 데이터 ");
 	}
 
 	private static void processListCommand() {
@@ -125,6 +131,16 @@ public class MainForSpring {
 		VersionPrinter versionPrinter = 
 				ctx.getBean("versionPrinter", VersionPrinter.class);
 		versionPrinter.print();
+	}
+
+	private static void processSampleCommand() {
+		System.out.println("new 이메일1 이름1 암호1 암호1");
+		System.out.println("new 이메일2 이름2 암호2 암호2");
+		System.out.println("change 이메일1 암호1 암호11");
+		System.out.println("change 이메일2 암호2 암호22");
+		System.out.println("info 이메일1");
+		System.out.println("info 이메일2");
+		System.out.println("list\n"  + "version");
 	}
 
 }
