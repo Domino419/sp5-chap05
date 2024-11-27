@@ -16,5 +16,5 @@ git commit -m  "chap04 처음부터 다시 !- "
 
 
 git commit -m  "chap04 -@Autowired 애노테이션의 필수 여부."
-git commit -m  "chap04 -5-1.생성자 초기화와 필수 여부 지정 방식 동작 이해"
+git commit -m  "cchap5.컴포넌트 스캔 - 1.@Component 애 노테이션으로 스캔 대상 지정"
 

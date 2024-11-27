@@ -19,3 +19,6 @@ MainForSpring에서 sample data sout 입력해둠
 1.@Component 애노테이션으로 스캔 대상 지정
 @Component 붙이기 완료 [리스트 5.1]
 @Component("infoPrinter") 붙이기 완료 [리스트 5.2] 
+
+
+
