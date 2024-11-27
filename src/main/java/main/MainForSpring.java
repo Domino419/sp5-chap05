@@ -62,8 +62,8 @@ public class MainForSpring {
 			printHelp();
 			return;
 		}
-		MemberRegisterService regSvc = 
-				ctx.getBean("memberRegSvc", MemberRegisterService.class);
+		MemberRegisterService regSvc = ctx.getBean( MemberRegisterService.class);
+
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail(arg[1]);
 		req.setName(arg[2]);
@@ -87,8 +87,8 @@ public class MainForSpring {
 			printHelp();
 			return;
 		}
-		ChangePasswordService changePwdSvc = 
-				ctx.getBean("changePwdSvc", ChangePasswordService.class);
+		ChangePasswordService changePwdSvc = ctx.getBean(ChangePasswordService.class);
+
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
 			System.out.println("암호를 변경했습니다.\n");
@@ -102,12 +102,12 @@ public class MainForSpring {
 	private static void printHelp() {
 		System.out.println();
 		System.out.println("잘못된 명령입니다. 아래 명령어 사용법을 확인하세요.");
-		System.out.println("명령어 사용법:");
-		System.out.println("new 이메일 이름 암호 암호확인");
-		System.out.println("change 이메일 현재비번 변경비번");
-		System.out.println("info 이메일1");
-		System.out.println("list");
-		System.out.println("version");
+		System.out.println("명령어 사용법: new, change ,info ,list , version ,   sample ");
+//		System.out.println("new 이메일 이름 암호 암호확인");
+//		System.out.println("change 이메일 현재비번 변경비번");
+//		System.out.println("info 이메일1");
+//		System.out.println("list");
+//		System.out.println("version");
 		System.out.println("sample -- 테스트용 샘플 데이터 ");
 	}
 
@@ -128,8 +128,7 @@ public class MainForSpring {
 	}
 	
 	private static void processVersionCommand() {
-		VersionPrinter versionPrinter = 
-				ctx.getBean("versionPrinter", VersionPrinter.class);
+		VersionPrinter versionPrinter = ctx.getBean("versionPrinter", VersionPrinter.class);
 		versionPrinter.print();
 	}
 
@@ -144,9 +143,3 @@ public class MainForSpring {
 	}
 
 }
-
-//new 이메일 이름 암호 암호확인
-//new 이메일 이름 암호1 암호1
-//new 이메일2 이름2 암호2 암호2
-//change 이메일 암호 암호2
-//info 이메일

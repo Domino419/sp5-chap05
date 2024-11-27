@@ -2,34 +2,17 @@ package config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import spring.*;
+import spring.MemberPrinter;
+import spring.MemberSummaryPrinter;
+import spring.VersionPrinter;
 
 @Configuration
+@ComponentScan(basePackages = {"spring"})
 public class AppCtx {
 
-	@Bean
-	public MemberDao memberDao() {
-		return new MemberDao();
-	}
-	
-	@Bean
-	public MemberRegisterService memberRegSvc() {
-		return new MemberRegisterService();
-	}
-	
-	@Bean
-	public ChangePasswordService changePwdSvc() {
-		return new ChangePasswordService() ;
-	}
-	
-	@Bean
-	public MemberPrinter memberPrinter() {
-		return new MemberPrinter();
-	}
-
-    //119 str
     @Bean
 	@Qualifier("Printer")
 	public MemberPrinter memberPrinter1() {
@@ -40,18 +23,7 @@ public class AppCtx {
 	public MemberSummaryPrinter memberPrinter2() {
 		return new MemberSummaryPrinter();
 	}
-	// 119 end
-	
-	@Bean
-	public MemberListPrinter listPrinter() {
-		return new MemberListPrinter();
-	}
-	
-	@Bean
-	public MemberInfoPrinter infoPrinter() {
-		return  new MemberInfoPrinter();
-	}
-	
+
 	@Bean
 	public VersionPrinter versionPrinter() {
 		VersionPrinter versionPrinter = new VersionPrinter();
@@ -61,5 +33,5 @@ public class AppCtx {
 	}
 }
 
-// 113page  - Appctx class설정에서 memberPrinter2()메서드가 MemberSummaryPrinter 타입의 빈 객체를 설정하도록 변경.
-// 119page -
+// @ComponentScan(basePackages = {"spring"}) 으로 Bean이 자동 검색 되므로
+// 기존에 있던 Bean Code들은 모두 삭제 처리 함. 241128
